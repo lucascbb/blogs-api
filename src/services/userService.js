@@ -1,16 +1,18 @@
 const { User } = require('../models');
 
-const createUser = ({ username, password }) => User.create({ username, password });
+const login = (nome, email, password) => User.create(nome, email, password);
 
 const getUsers = () => User.findAll();
 
-const getByUsername = (username) => User.findOne({ where: { username } });
+const getNameByEmail = (email) => User.findOne(
+  { where: { email }, attributes: ['display_name', 'id'] },
+);
 
 const getByUserId = (userId) => User.findByPk(userId);
 
 module.exports = {
-  createUser,
+  login,
   getUsers,
-  getByUsername,
+  getNameByEmail,
   getByUserId,
 };

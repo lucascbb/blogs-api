@@ -1,5 +1,5 @@
 const express = require('express');
-const routes = require('./routes');
+const routes = require('./routers/routes');
 
 const app = express();
 
@@ -12,8 +12,7 @@ app.use(express.json());
 
 const apiRoutes = express.Router();
 
-apiRoutes.post('/api/users', routes.createUsers);
-apiRoutes.get('/api/users', routes.getUsers);
+apiRoutes.post('/login', routes.loginUser);
 
 app.use(apiRoutes);
 
