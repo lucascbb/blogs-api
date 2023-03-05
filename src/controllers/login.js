@@ -6,11 +6,12 @@ const secret = process.env.JWT_SECRET || 'seusecretdetoken';
 
 module.exports = async (req, res) => {
   const { email, password } = req.body;
-  const name = await userService.getNameByEmail(email);
+  const name = await userService.getNameByEmail(email); 
 
   if (!email || !password) { 
     return res.status(400).json({ message: 'Some required fields are missing' }); 
   }
+  
   if (!name) { return res.status(400).json({ message: 'Invalid fields' }); }
 
   const jwtConfig = {
