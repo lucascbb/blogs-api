@@ -3,4 +3,4 @@ const loginValidate = (email, password, name) => {
   if (!name) return { status: 400, message: 'Invalid fields' };  
 };
 
-module.exports = loginValidate;
+module.exports = { loginValidate };

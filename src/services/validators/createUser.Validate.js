@@ -1,6 +1,6 @@
 const createUserValidate = (data, user) => {
   const regexEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
-  console.log(user);
+
   if (data.displayName.length < 8) { 
     return { status: 400, message: '"displayName" length must be at least 8 characters long' }; 
   }
@@ -18,6 +18,4 @@ const createUserValidate = (data, user) => {
   } 
 };
 
-module.exports = {
-  createUserValidate,
-};
+module.exports = { createUserValidate };
