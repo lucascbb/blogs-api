@@ -6,6 +6,4 @@ const loginValidate = (email, password, name) => {
   return null;  
 };
 
-module.exports = {
-  loginValidate,
-};
+module.exports = { loginValidate };
