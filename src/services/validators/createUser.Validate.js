@@ -15,9 +15,7 @@ const createUserValidate = (data, user) => {
 
   if (user) { 
     return { status: 409, message: 'User already registered' }; 
-  }
-
-  return null;  
+  } 
 };
 
 module.exports = {
