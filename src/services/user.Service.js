@@ -4,7 +4,7 @@ const newUser = (objUser) => User.create(objUser);
 
 const getIdbyEmail = (email) => User.findOne({ where: { email } });
 
-const getAllUsers = () => User.findAll();
+const getAllUsers = () => User.findAll({ attributes: ['displayName', 'email', 'image'] });
 
 module.exports = { 
   newUser,

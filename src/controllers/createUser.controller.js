@@ -1,6 +1,6 @@
 require('dotenv/config');
 const { createUserService } = require('../services');
-const tokenJWT = require('../Utils/pwt');
+const { newToken } = require('../Utils/token.Validate');
 const { createUserValidate } = require('../services/validators/createUser.Validate');
 
 module.exports = async (req, res) => {
@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
   // pegando o id do usuario criado acima
   const { id } = await createUserService.getIdbyEmail(data.email);
   // chamando a funcao tokenJWT, criada para gerar token 
-  const token = tokenJWT(id);
+  const token = newToken(id);
   // retorno que novo usuario foi criado com sucesso e retorna o token
   return res.status(201).json({ token });
 };

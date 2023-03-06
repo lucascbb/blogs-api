@@ -1,5 +1,6 @@
 const express = require('express');
 const routes = require('./routers/routes');
+const validateToken = require('./middlewares/token');
 
 const app = express();
 
@@ -16,7 +17,7 @@ apiRoutes.post('/login', routes.loginUser);
 
 apiRoutes.post('/user', routes.createUser);
 
-apiRoutes.get('/user', routes.allUsers);
+apiRoutes.get('/user', validateToken, routes.allUsers);
 
 app.use(apiRoutes);
 
