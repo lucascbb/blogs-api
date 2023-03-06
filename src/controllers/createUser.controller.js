@@ -12,9 +12,9 @@ module.exports = async (req, res) => {
   if (result) { return res.status(result.status).json({ message: result.message }); }
 
   await createUserService.newUser(data);
-  
+
   const { id } = await createUserService.getIdbyEmail(data.email);
   const token = tokenJWT(id);
 
-  return res.status(200).json({ token });
+  return res.status(201).json({ token });
 };
