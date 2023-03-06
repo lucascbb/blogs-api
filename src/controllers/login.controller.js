@@ -1,5 +1,5 @@
 require('dotenv/config');
-const loginService = require('../services/login.Service');
+const { loginService } = require('../services');
 const { newToken } = require('../Utils/token.Validate');
 const { loginValidate } = require('../services/validators/login.Validate');
 

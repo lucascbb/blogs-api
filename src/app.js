@@ -5,9 +5,7 @@ const validateToken = require('./middlewares/token');
 const app = express();
 
 // não remova ou mova esse endpoint
-app.get('/', (_request, response) => {
-  response.send();
-});
+app.get('/', (_request, response) => { response.send(); });
 
 app.use(express.json());
 
@@ -18,6 +16,8 @@ apiRoutes.post('/login', routes.loginUser);
 apiRoutes.post('/user', routes.createUser);
 
 apiRoutes.get('/user', validateToken, routes.allUsers);
+
+apiRoutes.get('/user/:id', validateToken, routes.idUsers);
 
 app.use(apiRoutes);
 
