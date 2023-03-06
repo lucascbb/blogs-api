@@ -16,6 +16,8 @@ apiRoutes.post('/login', routes.loginUser);
 
 apiRoutes.post('/user', routes.createUser);
 
+apiRoutes.get('/user', routes.allUsers);
+
 app.use(apiRoutes);
 
 module.exports = app;
