@@ -14,6 +14,8 @@ const apiRoutes = express.Router();
 
 apiRoutes.post('/login', routes.loginUser);
 
+apiRoutes.post('/user', routes.createUser);
+
 app.use(apiRoutes);
 
 module.exports = app;

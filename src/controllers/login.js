@@ -1,12 +1,12 @@
 require('dotenv/config');
 const jwt = require('jsonwebtoken');
-const userService = require('../services/userService');
+const loginService = require('../services/login.Service');
 
 const secret = process.env.JWT_SECRET || 'seusecretdetoken';
 
 module.exports = async (req, res) => {
   const { email, password } = req.body;
-  const name = await userService.getNameByEmail(email); 
+  const name = await loginService.getNameByEmail(email); 
 
   if (!email || !password) { 
     return res.status(400).json({ message: 'Some required fields are missing' }); 
