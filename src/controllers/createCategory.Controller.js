@@ -4,14 +4,13 @@ const { createUserValidate } = require('../services/validators/createCategory.Va
 
 module.exports = async (req, res) => {
   const data = req.body;
-  const { name } = req.body;
 
-  const validate = createUserValidate(name);
+  const validate = createUserValidate(data.name);
   if (validate) { return res.status(validate.status).json({ message: validate.message }); }
 
   await categoryService.newCategory(data);
 
-  const { dataValues } = await categoryService.getIdByCategory(name);
+  const { dataValues } = await categoryService.getIdByCategory(data.name);
   console.log(dataValues);
 
   return res.status(201).json(dataValues);
