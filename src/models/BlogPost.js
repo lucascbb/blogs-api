@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }, 
   {
     timestamps: false,
-    tableName: 'BlogPost',
+    tableName: 'blog_posts',
     underscored: true,
   });
 
@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     BlogPost.belongsTo(models.User, {
       foreignKey: 'userId', as: 'users' });
   };
+
   
   return BlogPost;
 }
