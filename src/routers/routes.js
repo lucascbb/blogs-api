@@ -6,5 +6,10 @@ const createCategory = require('../controllers/createCategory.Controller');
 const allCategories = require('../controllers/allCategories.Controller');
 
 module.exports = {
-  loginUser, createUser, allUsers, idUsers, createCategory, allCategories,
+  loginUser,
+  createUser,
+  allUsers,
+  idUsers,
+  createCategory,
+  allCategories,
 };
