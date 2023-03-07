@@ -23,6 +23,8 @@ apiRoutes.post('/categories', validateToken, routes.createCategory);
 
 apiRoutes.get('/categories', validateToken, routes.allCategories);
 
+apiRoutes.post('/post', validateToken, routes.createBlogPost);
+
 app.use(apiRoutes);
 
 module.exports = app;
