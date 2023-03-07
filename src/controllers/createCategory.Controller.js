@@ -11,7 +11,5 @@ module.exports = async (req, res) => {
   await categoryService.newCategory(data);
 
   const { dataValues } = await categoryService.getIdByCategory(data.name);
-  console.log(dataValues);
-
   return res.status(201).json(dataValues);
 };
