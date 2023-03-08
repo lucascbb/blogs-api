@@ -8,15 +8,13 @@ module.exports = async (req, res) => {
   const idBlogPost = await blogPostService.idBlogPosts(id);
 
   const allBlogsPosts = await blogPostService.allBlogPosts();
-  // console.log(allBlogsPosts);
 
   const userId = await blogPostService.getUsersById(allBlogsPosts.map((ele) => ele.userId));
-  console.log(userId.dataValues);
-  
+
   const validate = idPostIdValidate(idBlogPost);
   if (validate) { return res.status(validate.status).json({ message: validate.message }); } 
 
-  const postById = [{
+  const postById = {
     id: idBlogPost.dataValues.id,
     title: idBlogPost.dataValues.title,
     content: idBlogPost.dataValues.content,
@@ -25,7 +23,7 @@ module.exports = async (req, res) => {
     updated: idBlogPost.dataValues.updated,
     user: userId.dataValues,
     categories: [{ id: 1, name: 'Inovação' }],
-  }];
+  };
 
   return res.status(200).json(postById);
 };
