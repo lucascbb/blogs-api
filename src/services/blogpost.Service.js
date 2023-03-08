@@ -1,6 +1,7 @@
 const { BlogPost } = require('../models');
 const { Category } = require('../models');
 const { PostCategory } = require('../models');
+const { User } = require('../models');
 
 const newBlogPost = (data) => BlogPost.create(data);
 
@@ -13,6 +14,8 @@ const getAddedTitle = (data) => BlogPost.findOne({ where: { title: data } });
 
 const getAllCategories = () => Category.findAll();
 
+const getUsersById = (data) => User.findOne({ where: { id: data } });
+
 module.exports = {
   newBlogPost,
   getAllCategories,
@@ -20,4 +23,5 @@ module.exports = {
   getAddedTitle,
   newPostId,
   allBlogPosts,
+  getUsersById,
 };
