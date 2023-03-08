@@ -30,10 +30,12 @@ module.exports = async (req, res) => {
   // Aqui pegamos o dataValues pois dentro dele tem o ID do ultimo item adicionado
   const { dataValues } = await blogPostService.getAddedContent(content);
   
-  // Aqui o retorno eh uma promises (igual o nome rs), e por isso usamos o Promise.All 
+  // Aqui o retorno eh uma promises (igual o nome rs), e por isso usamos o Promise.All
+  // Depois populo a tabela posts_categories
   const promises = [{ id: categoryIds[0] }, { id: categoryIds[1] }].map((category) => 
   blogPostService.newPostId({ postId: dataValues.id, categoryId: category.id }));
   await Promise.all(promises);
 
+  // Caso td esteja c as validations aqui deve retornar o item adicionado na tabela blogposts
   return res.status(201).json(dataValues);
 };

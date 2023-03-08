@@ -5,6 +5,7 @@ const idUsers = require('../controllers/idUsers.Controller');
 const createCategory = require('../controllers/createCategory.Controller');
 const allCategories = require('../controllers/allCategories.Controller');
 const createBlogPost = require('../controllers/createBlogPost.Controller');
+const allBlogPosts = require('../controllers/allBlogPosts.Controller');
 
 module.exports = {
   loginUser,
@@ -14,4 +15,5 @@ module.exports = {
   createCategory,
   allCategories,
   createBlogPost,
+  allBlogPosts,
 };

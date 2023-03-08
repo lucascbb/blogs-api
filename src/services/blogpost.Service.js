@@ -4,6 +4,8 @@ const { PostCategory } = require('../models');
 
 const newBlogPost = (data) => BlogPost.create(data);
 
+const allBlogPosts = () => BlogPost.findAll();
+
 const newPostId = (data) => PostCategory.create(data);
 
 const getAddedContent = (data) => BlogPost.findOne({ where: { content: data } });
@@ -17,4 +19,5 @@ module.exports = {
   getAddedContent,
   getAddedTitle,
   newPostId,
+  allBlogPosts,
 };
