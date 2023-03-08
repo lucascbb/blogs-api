@@ -21,11 +21,12 @@ module.exports = async (req, res) => {
 
   const { dataValues } = await blogPostService.getAddedPost(content);
 
-  const objId = { postId: dataValues.id, categoryId: categoryIds[0] };
-  // categoryIds.map((ele) => ele)
-  await blogPostService.newPostId(objId);
+  const on = [{ id: categoryIds[0] }, { id: categoryIds[1] }];
 
-  console.log(categoryIds);
+  const promises = on.map((category) => 
+  blogPostService.newPostId({ postId: dataValues.id, categoryId: category.id }));
+  
+  await Promise.all(promises);
 
   return res.status(201).json(dataValues);
 };
