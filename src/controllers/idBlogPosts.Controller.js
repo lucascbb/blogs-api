@@ -8,9 +8,11 @@ module.exports = async (req, res) => {
   const idBlogPost = await blogPostService.idBlogPosts(id);
 
   const allBlogsPosts = await blogPostService.allBlogPosts();
+  // console.log(allBlogsPosts);
 
   const userId = await blogPostService.getUsersById(allBlogsPosts.map((ele) => ele.userId));
-
+  console.log(userId.dataValues);
+  
   const validate = idPostIdValidate(idBlogPost);
   if (validate) { return res.status(validate.status).json({ message: validate.message }); } 
 
