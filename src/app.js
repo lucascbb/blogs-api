@@ -27,6 +27,8 @@ apiRoutes.post('/post', validateToken, routes.createBlogPost);
 
 apiRoutes.get('/post', validateToken, routes.allBlogPosts);
 
+apiRoutes.get('/post/:id', validateToken, routes.idBlogPosts);
+
 app.use(apiRoutes);
 
 module.exports = app;
