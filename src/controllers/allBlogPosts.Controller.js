@@ -8,9 +8,9 @@ module.exports = async (_req, res) => {
   //   console.log(result[i].dataValues);
   // }
 
-  console.log(result[0].dataValues);
+  // console.log(result[0].dataValues);
   console.log(dataValues);
-  console.log([result[0].dataValues].concat(dataValues));
+  // console.log([result[0].dataValues].concat(dataValues));
 
-  return res.status(200).json(result);
+  return res.status(200).json([result[0].dataValues].concat(dataValues));
 };
