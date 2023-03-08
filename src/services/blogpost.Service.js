@@ -14,7 +14,9 @@ const getAddedTitle = (data) => BlogPost.findOne({ where: { title: data } });
 
 const getAllCategories = () => Category.findAll();
 
-const getUsersById = (data) => User.findOne({ attributes: { exclude: ['password'] }, where: { id: data } });
+const getUsersById = (data) => User.findOne(
+  { attributes: { exclude: ['password'] }, where: { id: data } },
+);
 
 module.exports = {
   newBlogPost,

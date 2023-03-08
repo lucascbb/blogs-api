@@ -3,14 +3,20 @@ const { blogPostService } = require('../services');
 
 module.exports = async (_req, res) => {
   const result = await blogPostService.allBlogPosts();
-  const { dataValues } = await blogPostService.getUsersById(result.map((ele) => ele.userId));
-  // for (let i = 0; i < result.length; i += 1) { 
-  //   console.log(result[i].dataValues);
-  // }
+  const userId = await blogPostService.getUsersById(result.map((ele) => ele.userId));
 
-  // console.log(result[0].dataValues);
-  console.log(dataValues);
-  // console.log([result[0].dataValues].concat(dataValues));
+  const a = [];
+  result.forEach((numero) => a.push({
+    id: numero.dataValues.id,
+    title: numero.dataValues.title,
+    content: numero.dataValues.content,
+    userId: numero.dataValues.userId,
+    published: numero.dataValues.published,
+    updated: numero.dataValues.updated,
+    user: userId.dataValues,
+    categories: [{ id: 1, name: 'Inovação' }],
+  }));
 
-  return res.status(200).json([result[0].dataValues].concat(dataValues));
+  console.log(result.map((ele) => ele.userId));
+  return res.status(200).json(a);
 };
