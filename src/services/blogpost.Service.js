@@ -6,13 +6,15 @@ const newBlogPost = (data) => BlogPost.create(data);
 
 const newPostId = (data) => PostCategory.create(data);
 
-const getAddedPost = (data) => BlogPost.findOne({ where: { content: data } });
+const getAddedContent = (data) => BlogPost.findOne({ where: { content: data } });
+const getAddedTitle = (data) => BlogPost.findOne({ where: { title: data } });
 
 const getAllCategories = () => Category.findAll();
 
 module.exports = {
   newBlogPost,
   getAllCategories,
-  getAddedPost,
+  getAddedContent,
+  getAddedTitle,
   newPostId,
 };
