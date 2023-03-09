@@ -7,6 +7,21 @@ const newBlogPost = (data) => BlogPost.create(data);
 
 const allBlogPosts = () => BlogPost.findAll();
 
+const innerjoin = () => BlogPost.findAll(
+  {
+    include: [
+      {
+      model: User,
+      as: 'users',
+      attributes: { exclude: ['password'] },
+    },
+    { 
+      model: Category,
+      as: 'categories',
+    }],
+  },
+);
+
 const idBlogPosts = (id) => BlogPost.findByPk(id);
 
 const newPostId = (data) => PostCategory.create(data);
@@ -14,19 +29,17 @@ const newPostId = (data) => PostCategory.create(data);
 const getAddedContent = (data) => BlogPost.findOne({ where: { content: data } });
 const getAddedTitle = (data) => BlogPost.findOne({ where: { title: data } });
 
-const getAllCategories = () => Category.findAll();
-
 const getUsersById = (data) => User.findOne(
   { attributes: { exclude: ['password'] }, where: { id: data } },
 );
 
 module.exports = {
   newBlogPost,
-  getAllCategories,
   getAddedContent,
   getAddedTitle,
   newPostId,
   allBlogPosts,
   getUsersById,
   idBlogPosts,
+  innerjoin,
 };
