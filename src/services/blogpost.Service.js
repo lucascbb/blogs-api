@@ -12,12 +12,13 @@ const innerjoin = () => BlogPost.findAll(
     include: [
       {
       model: User,
-      as: 'users',
+      as: 'user',
       attributes: { exclude: ['password'] },
     },
     { 
       model: Category,
       as: 'categories',
+      through: { attributes: [] },
     }],
   },
 );
