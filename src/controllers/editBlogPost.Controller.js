@@ -8,6 +8,8 @@ module.exports = async (req, res) => {
   const data = req.body;
   const { authorization } = req.headers;
 
+  // const idBlogPost = await blogPostService.idBlogPost(id);
+  await blogPostService.updatePost(data, id);
   const idBlogPost = await blogPostService.idBlogPost(id);
 
   const currentID = validateToken(authorization).data.userId;
@@ -15,7 +17,7 @@ module.exports = async (req, res) => {
   const validate = idPostIdValidate(idBlogPost, currentID, idUserPost, data);
   if (validate) { return res.status(validate.status).json({ message: validate.message }); } 
 
-  console.log();
+  console.log(idBlogPost[0].dataValues);
 
-  return res.status(200).json(data);
+  return res.status(200).json(idBlogPost[0].dataValues);
 };

@@ -44,6 +44,11 @@ const getAddedTitle = (data) => BlogPost.findOne({ where: { title: data } });
 
 const newPostId = (data) => PostCategory.create(data);
 
+const updatePost = (data, id) => BlogPost.update(
+  { title: data.title, content: data.content }, 
+  { where: { id } },
+);
+
 module.exports = {
   newBlogPost,
   getAddedContent,
@@ -52,4 +57,5 @@ module.exports = {
   idBlogPosts,
   allBlogPosts,
   idBlogPost,
+  updatePost,
 };
