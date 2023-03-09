@@ -49,6 +49,8 @@ const updatePost = (data, id) => BlogPost.update(
   { where: { id } },
 );
 
+const deletePost = (id) => BlogPost.destroy({ where: { id } });
+
 module.exports = {
   newBlogPost,
   getAddedContent,
@@ -58,4 +60,5 @@ module.exports = {
   allBlogPosts,
   idBlogPost,
   updatePost,
+  deletePost,
 };

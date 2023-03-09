@@ -31,6 +31,8 @@ apiRoutes.get('/post/:id', validateToken, routes.idBlogPosts);
 
 apiRoutes.put('/post/:id', validateToken, routes.editBlogPost);
 
+apiRoutes.delete('/post/:id', validateToken, routes.deletePost);
+
 app.use(apiRoutes);
 
 module.exports = app;

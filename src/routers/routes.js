@@ -8,6 +8,7 @@ const createBlogPost = require('../controllers/createBlogPost.Controller');
 const allBlogPosts = require('../controllers/allBlogPosts.Controller');
 const idBlogPosts = require('../controllers/idBlogPosts.Controller');
 const editBlogPost = require('../controllers/editBlogPost.Controller');
+const deletePost = require('../controllers/deletePost.Controller');
 
 module.exports = {
   loginUser,
@@ -20,4 +21,5 @@ module.exports = {
   allBlogPosts,
   idBlogPosts,
   editBlogPost,
+  deletePost,
 };
