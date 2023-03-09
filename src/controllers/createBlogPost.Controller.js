@@ -1,11 +1,11 @@
 require('dotenv/config');
-const { blogPostService } = require('../services');
+const { blogPostService, categoryService } = require('../services');
 const { createPostValidate } = require('../services/validators/createPost.Validate');
 
 module.exports = async (req, res) => {
   const { title, content, categoryIds } = req.body;
 
-  const allCategories = await blogPostService.getAllCategories();
+  const allCategories = await categoryService.getAllCategories();
 
   // Aqui uso um for para adicionar no array todos Ids que ja existem na tabela,
   // valido caso ja exista pode usar ele como foreign key em outra tabela
