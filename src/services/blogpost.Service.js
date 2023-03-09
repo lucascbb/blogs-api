@@ -7,7 +7,7 @@ const newBlogPost = (data) => BlogPost.create(data);
 
 const getAllCategories = () => Category.findAll();
 
-const innerjoin = () => BlogPost.findAll(
+const allBlogPosts = () => BlogPost.findAll(
   {
     include: [
       {
@@ -23,7 +23,7 @@ const innerjoin = () => BlogPost.findAll(
   },
 );
 
-const innerId = (data) => BlogPost.findAll(
+const idBlogPost = (data) => BlogPost.findAll(
   { where: { id: data },
     include: [
       {
@@ -53,6 +53,6 @@ module.exports = {
   newPostId,
   getAllCategories,
   idBlogPosts,
-  innerjoin,
-  innerId,
+  allBlogPosts,
+  idBlogPost,
 };
