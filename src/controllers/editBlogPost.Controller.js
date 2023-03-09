@@ -8,16 +8,17 @@ module.exports = async (req, res) => {
   const data = req.body;
   const { authorization } = req.headers;
 
-  // const idBlogPost = await blogPostService.idBlogPost(id);
+  // Atualizando o banco de dados
   await blogPostService.updatePost(data, id);
+  // Retornando o post baseado no Id 
   const idBlogPost = await blogPostService.idBlogPost(id);
 
+  // As proximas 4 linhas de codigo sao para validar
+  // Retorna o usuario que esta logado atraves do TOKEN
   const currentID = validateToken(authorization).data.userId;
   const idUserPost = idBlogPost[0].userId;
   const validate = idPostIdValidate(idBlogPost, currentID, idUserPost, data);
   if (validate) { return res.status(validate.status).json({ message: validate.message }); } 
-
-  console.log(idBlogPost[0].dataValues);
 
   return res.status(200).json(idBlogPost[0].dataValues);
 };
