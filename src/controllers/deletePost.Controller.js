@@ -1,20 +1,24 @@
 require('dotenv/config');
-const { blogPostService } = require('../services');
 const { validateToken } = require('../Utils/token.Validate');
-const { deletePostIdValidate } = require('../services/validators/deletePost.Validate');
+const { blogPostService } = require('../services');
+// const { deletePostValidate } = require('../services/validators/deletePost.Validate');
 
 module.exports = async (req, res) => {
   const { id } = req.params;
-  const { authorization } = req.header;
+  const { authorization } = req.headers;
+  const { data } = validateToken(authorization);
 
-  const idBlogPost = await blogPostService.idBlogPost(id);
+  const idBlogPost0 = await blogPostService.idBlogPost(id);
 
-  const currentID = validateToken(authorization).data.userId;
-  // const idUserPost = idBlogPost[0].userId;
+  if (!idBlogPost0[0]) { return res.status(404).json({ message: 'Post does not exist' }); }
 
-  const validate = deletePostIdValidate(idBlogPost);
-  if (validate) { return res.status(validate.status).json({ message: validate.message }); }
+  // console.log(idBlogPost0[0].userId);
+  // console.log(data.userId);
+
+  if (data.userId !== idBlogPost0[0].userId) { 
+    return res.status(401).json({ message: 'Unauthorized user' }); 
+  }
 
   await blogPostService.deletePost(id);
-  return res.status(204).json('sucess item deleted');
+  return res.status(204).json();
 };

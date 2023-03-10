@@ -21,8 +21,8 @@ const allBlogPosts = () => BlogPost.findAll(
   },
 );
 
-const idBlogPost = (data) => BlogPost.findAll(
-  { where: { id: data },
+const idBlogPost = (id) => BlogPost.findAll(
+  { where: { id },
     include: [
       {
       model: User,
@@ -38,6 +38,8 @@ const idBlogPost = (data) => BlogPost.findAll(
 );
 
 const idBlogPosts = (id) => BlogPost.findByPk(id);
+
+const idBlogPosts2 = (ide) => BlogPost.findOne({ where: { id: ide } });
 
 const getAddedContent = (data) => BlogPost.findOne({ where: { content: data } });
 const getAddedTitle = (data) => BlogPost.findOne({ where: { title: data } });
@@ -61,4 +63,5 @@ module.exports = {
   idBlogPost,
   updatePost,
   deletePost,
+  idBlogPosts2,
 };
