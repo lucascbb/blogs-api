@@ -10,6 +10,7 @@ const idBlogPosts = require('../controllers/idBlogPosts.Controller');
 const editBlogPost = require('../controllers/editBlogPost.Controller');
 const deletePost = require('../controllers/deletePost.Controller');
 const deleteMe = require('../controllers/deleteMe.Controller');
+const searchPost = require('../controllers/searchPost.Controller');
 
 module.exports = {
   loginUser,
@@ -24,4 +25,5 @@ module.exports = {
   editBlogPost,
   deletePost,
   deleteMe,
+  searchPost,
 };

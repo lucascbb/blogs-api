@@ -29,6 +29,8 @@ apiRoutes.post('/post', validateToken, routes.createBlogPost);
 
 apiRoutes.get('/post', validateToken, routes.allBlogPosts);
 
+apiRoutes.get('/post/search', validateToken, routes.searchPost);
+
 apiRoutes.get('/post/:id', validateToken, routes.idBlogPosts);
 
 apiRoutes.put('/post/:id', validateToken, routes.editBlogPost);
