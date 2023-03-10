@@ -8,38 +8,23 @@ const newBlogPost = (data) => BlogPost.create(data);
 const allBlogPosts = () => BlogPost.findAll(
   {
     include: [
-      {
-      model: User,
-      as: 'user',
-      attributes: { exclude: ['password'] },
-    },
-    { 
-      model: Category,
-      as: 'categories',
-      through: { attributes: [] },
-    }],
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+      { model: Category, as: 'categories', through: { attributes: [] } },
+    ],
   },
 );
 
+// ESSE AQUI:
 const idBlogPost = (id) => BlogPost.findAll(
   { where: { id },
     include: [
-      {
-      model: User,
-      as: 'user',
-      attributes: { exclude: ['password'] },
-    },
-    { 
-      model: Category,
-      as: 'categories',
-      through: { attributes: [] },
-    }],
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+      { model: Category, as: 'categories', through: { attributes: [] } },
+    ],
   },
 );
 
 const idBlogPosts = (id) => BlogPost.findByPk(id);
-
-const idBlogPosts2 = (ide) => BlogPost.findOne({ where: { id: ide } });
 
 const getAddedContent = (data) => BlogPost.findOne({ where: { content: data } });
 const getAddedTitle = (data) => BlogPost.findOne({ where: { title: data } });
@@ -63,5 +48,4 @@ module.exports = {
   idBlogPost,
   updatePost,
   deletePost,
-  idBlogPosts2,
 };
