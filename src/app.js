@@ -19,6 +19,8 @@ apiRoutes.get('/user', validateToken, routes.allUsers);
 
 apiRoutes.get('/user/:id', validateToken, routes.idUsers);
 
+apiRoutes.delete('/user/me', validateToken, routes.deleteMe);
+
 apiRoutes.post('/categories', validateToken, routes.createCategory);
 
 apiRoutes.get('/categories', validateToken, routes.allCategories);
