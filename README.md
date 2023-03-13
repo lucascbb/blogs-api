@@ -35,10 +35,10 @@ A API foi construída utilizando as seguintes tecnologias:
   <br />
 
   ####  1 - Clone este repositório para sua máquina local usando o seguinte comando no terminal:
-  `git clone https://github.com/tryber/sd-025-b-project-blogs-api.git`
+  `git clone https://github.com/lucascbb/blogs-api.git`
 
   #### 2 - Acesse o diretório do projeto:
-  `cd sd-025-b-project-blogs-api`
+  `cd blogs-api`
 
   #### 3 - Instale as dependências do projeto utilizando o seguinte comando:
   `npm install`
