@@ -8,25 +8,18 @@ module.exports = async (req, res) => {
   const { data } = validateToken(authorization);
 
   // Pega o post com base no ID
-  const idBlogPost0 = await blogPostService.idBlogPost(id);
-
-  console.log(idBlogPost0);
-  console.log(id);
-  console.log(authorization);
-  console.log(data);
+  const idBlogPost = await blogPostService.idBlogPost2(id);
 
   // Verifica se o post existe
-  if (!idBlogPost0[0]) { return res.status(404).json({ message: 'Post does not exist' }); }
-
-  // console.log(idBlogPost0);
-  // console.log(typeof data.userId);
+  if (!idBlogPost) { return res.status(404).json({ message: 'Post does not exist' }); }
+  console.log(idBlogPost.userId);
 
   // Verifica se o user eh o dono do post
-  if (data.userId !== idBlogPost0[0].userId) {
+  if (data.userId !== idBlogPost.userId) {
     return res.status(401).json({ message: 'Unauthorized user' }); 
   }
 
   // Deleta o post
-  await blogPostService.deletePost(id);
+  // await blogPostService.deletePost(id);
   return res.status(204).json();
 };
