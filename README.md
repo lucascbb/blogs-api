@@ -33,9 +33,12 @@ A API foi construída utilizando as seguintes tecnologias:
   Antes de começar a instalação, verifique se você possui o Node.js e o MySQL instalados em sua máquina.
 
   <br />
+<<<<<<< HEAD
   * Dica: Para testar os endpoints recomendo usar a extensão Thunder Client
 
   <br />
+=======
+>>>>>>> 3cd9c460c41b550eff2973bc8053b5d4bf127b23
 
   ####  1 - Clone este repositório para sua máquina local usando o seguinte comando no terminal:
   `git clone https://github.com/lucascbb/blogs-api.git`
@@ -46,6 +49,7 @@ A API foi construída utilizando as seguintes tecnologias:
   #### 3 - Instale as dependências do projeto utilizando o seguinte comando:
   `npm install`
 
+<<<<<<< HEAD
   #### 4 - Rode os serviços node e db com o comando 
   `docker-compose up -d --build`
 
@@ -53,6 +57,9 @@ A API foi construída utilizando as seguintes tecnologias:
   `npm run prestart` e `npm run seed`
 
   #### 6 - Rode o projeto na porta 3001 utilizando o nodemon:
+=======
+  #### 4 - Rode o projeto na porta 3001 utilizando o nodemon:
+>>>>>>> 3cd9c460c41b550eff2973bc8053b5d4bf127b23
   `npm run debug`
 
 </details>
