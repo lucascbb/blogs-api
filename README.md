@@ -65,7 +65,7 @@ A API foi construída utilizando as seguintes tecnologias:
   <br />
   <summary><strong>Diagrama de Entidade-Relacionamento</strong></summary>
   <br />
-  <img src="./dere.png" alt="Minha Figura">
+  <img src="https://raw.githubusercontent.com/tryber/sd-025-b-project-blogs-api/master/public/der.png?token=GHSAT0AAAAAABY63G3BMAFT4BMIOFEX3MW4ZAUSLVA" alt="Minha Figura">
 
   1 - Deleta o banco de dados: "drop": "npx sequelize-cli db:drop"
   - `npm run drop`
